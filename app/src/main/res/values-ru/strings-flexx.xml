@@ -47,4 +47,56 @@
 	<string name="PhotoSizeLimit2560">Отправка фотографий большого размера</string>
 	<string name="PhotoSizeLimit2560Desc">Увеличить размер сторон до 2560px.</string>
 
+	<!-- Folders -->
+	<string name="ChatTypes">Типы чатов</string>
+  	<string name="ChatFolders">Папки с чатами</string>
+  	<string name="ChatFoldersInfo">Создавайте папки для различных групп чатов и быстро переключайтесь между ними.</string>
+  	<string name="ChatFoldersSettings">Настройки</string>
+  	<string name="ChatFoldersAppearance">Внешний вид</string>
+  	<string name="ChatFoldersPositionTop">Сверху</string>
+  	<string name="ChatFoldersPositionBottom">Снизу</string>
+  	<string name="ChatFolderChangeIcon">Сменить иконку</string>
+  	<string name="ChatFolderAddChats">Добавить чаты</string>
+  	<string name="ChatFolderLimitReached">Вы превысили лимит в **%1$d** папок.</string>
+  	<string name="ChatsInFolderLimitReached">Извините, Вы не можете добавить более чем **%1$d** чатов в папку. Пожалуйста, создайте новую.</string>
+  	<string name="NewFolder">Новая папка</string>
+  	<string name="CreateNewFolder">Создать новую папку</string>
+  	<string name="HideFolder">Скрыть папку</string>
+  	<string name="HideFolderInfo">Чтобы отобразить папку %1$s снова, перейдите: %2$s > %3$s</string>
+  	<string name="HideAllChats">Скрыть все чаты</string>
+  	<string name="EditFolder">Редактировать папку</string>
+  	<string name="EditFolders">Редактировать папки</string>
+  	<string name="RemoveFolder">Удалить папку</string>
+  	<string name="RemoveFolderConfirm">Вы уверены, что хотите удалить эту папку? Ваши чаты не будут удалены.</string>
+  	<string name="FolderNoChatsToDisplay">**Пустая папка**\n\nВ настоящее время в этой папке нет чатов.</string>
+  	<string name="FolderRemoveInclusionConfirm">Вы уверены, что хотите удалить "%1$s" из всегда включаемого списка?</string>
+  	<string name="FolderRemoveExclusionConfirm">Вы уверены, что хотите удалить "%1$s" из всегда исключаемого списка?</string>
+  	<string name="IncludeChats">Выбрать чаты</string>
+  	<string name="IncludeChatsInfo_one">Вы можете выбрать только один несекретный и только один секретный чат.</string>
+  	<string name="IncludeChatsInfo_other">Вы можете выбрать до %1$ несекретных чатов и столько же секретных.</string>
+  	<string name="ExcludeChats">Исключить чаты</string>
+  	<string name="ExcludeChatsInfo_one">Вы можете выбрать только один несекретный и только один секретный чат.</string>
+  	<string name="ExcludeChatsInfo_other">Вы можете выбрать до %1$ несекретных чатов и столько же секретных.</string>
+  	<string name="FolderIncludedChats">Выбранные чаты</string>
+  	<string name="FolderIncludedChatsInfo">Выберите чаты или типы чатов, которые будут отображаться в этой папке.</string>
+  	<string name="FolderExcludedChats">Исключенные чаты</string>
+  	<string name="FolderExcludedChatsInfo">Выберите чаты или типы чатов, которые **не** будут отображаться в этой папке.</string>
+  	<string name="FolderActionIncludeChats">Добавить чаты в список включенных</string>
+  	<string name="FolderActionExcludeChats">Добавить чаты в исключенные</string>
+  	<string name="FolderName">Имя папки</string>
+  	<string name="FolderNameHint">Имя</string>
+  	<string name="RecommendedFolders">Рекомендованные папки</string>
+  	<string name="AddToFolder">Добавить в папку</string>
+  	<string name="RemoveFromFolder">Удалить из папки</string>
+  	<string name="ChooseFolder">Выбрать папку</string>
+  	<string name="LocalFolderBadge">локально</string>
+  	<string name="MainListBadge">главная</string>
+  	<string name="IconOnly">Только иконка папки</string>
+  	<string name="LabelOnly">Только название папки</string>
+  	<string name="LabelAndIcon">Название папки с иконкой</string>
+  	<string name="CountMutedChats">Подсчет отключенных чатов</string>
+  	<string name="DisplayFoldersAtTheTop">Отображение папок в верхней части</string>
+  	<string name="ChatsXShowMore_one">Показать еще %1$s</string>
+  	<string name="ChatsXShowMore_other">Показать еще %1$s</string>
+
 </resources>
