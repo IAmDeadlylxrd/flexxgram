@@ -10,7 +10,8 @@
 	-->
 
 	<!-- Basic string -->
-	<string name="Flexx">Flexxgram</string>
+	<string name="Flexx" translatable="false">Flexxgram</string>
+	<string name="FlexxVersion" translatable="false">1.0.0</string>
 	<string name="FlexxSettings">Customize Flexxgram</string>
 	<string name="FlexxSettingsDesc">Customize Flexxgram</string>
 	<string name="FlexxLinks">Links</string>
@@ -24,13 +25,12 @@
 	<string name="ExperimentalController">Other</string>
 
 	<string name="TgChannel">Telegram channel</string>
-	<string name="TgChannelDesc">Get the latest Flexxgram updates</string>
-	<string name="Translate">Crowdin</string>
-	<string name="TranslateDesc">Translate Flexxgram into your language</string>
+	<string name="ChannelLink" translatable="false">https://flexxgram.t.me/</string>
+	<string name="CrowdinLink" translatable="false">https://crowdin.com/project/flexxgram/</string>
 	<string name="Sources">Source code</string>
-	<string name="SourcesDesc">Check out the Flexxgram source code</string>
+	<string name="SourcesLink" translatable="false">https://github.com/flexxteam/flexxgram/</string>
 	<string name="Donate">Donate</string>
-	<string name="DonateDesc">Financial support for development</string>
+	<string name="DonateLink" translatable="false">https://flexxteamdonate.t.me/</string>
 
 	<!-- Appearance controller strings -->
 	<string name="DrawerOptions">Drawer options</string>
@@ -51,6 +51,6 @@
 	<string name="FeatureToggles">Feature toggles</string>
 	<string name="FeatureTogglesDesc">Experimental Telegram settings</string>
 	<string name="PhotoSizeLimit2560">Sending large-size photos</string>
-	<string name="PhotoSizeLimit2560Desc">Increase the aspect size on compressed images to 2560px</string>
+	<string name="PhotoSizeLimit2560Desc">Increase the aspect size to 2560px</string>
 
 </resources>

@@ -83,7 +83,7 @@ import org.thunderdog.challegram.widget.TimerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.pluxurylord.flexxgram.FlexxSettings;
+import me.pluxurylord.flexxgram.FlexxConfig;
 
 import me.vkryl.android.AnimatorUtils;
 import me.vkryl.android.animator.BoolAnimator;
@@ -264,16 +264,16 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
     this.settingsErrorIcon = getSettingsErrorIcon();
     items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_settings, R.drawable.baseline_settings_24, R.string.Settings));
 
-    if (FlexxSettings.contacts) {
+    if (FlexxConfig.contacts) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_contacts, R.drawable.baseline_perm_contact_calendar_24, R.string.Contacts));
     }
     if (FlexxConfig.calls && Config.CHAT_FOLDERS_ENABLED) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_calls, R.drawable.baseline_call_24, R.string.Calls));
     }
-    if (FlexxSettings.savedMessages) {
+    if (FlexxConfig.savedMessages) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_savedMessages, R.drawable.baseline_bookmark_24, R.string.SavedMessages));
     }
-    if (FlexxSettings.invite) {
+    if (FlexxConfig.invite) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_invite, R.drawable.baseline_person_add_24, R.string.InviteFriends));
     }
 
@@ -283,11 +283,11 @@ public class DrawerController extends ViewController<Void> implements View.OnCli
       items.add(proxyItem);
     }
 
-    if (FlexxSettings.help) {
+    if (FlexxConfig.help) {
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM, R.id.btn_help, R.drawable.baseline_help_24, R.string.Help));
     }
 
-    if (FlexxSettings.night) {
+    if (FlexxConfig.night) {
       items.add(new ListItem(ListItem.TYPE_SEPARATOR_FULL));
       items.add(new ListItem(ListItem.TYPE_DRAWER_ITEM_WITH_RADIO, R.id.btn_night, R.drawable.baseline_brightness_2_24, R.string.NightMode, R.id.btn_night, Theme.isDark()));
     }

@@ -21,54 +21,49 @@ import org.thunderdog.challegram.v.CustomRecyclerView;
 
 import java.util.ArrayList;
 
-import me.pluxurylord.flexxgram.FlexxSettings;
+import me.pluxurylord.flexxgram.FlexxConfig;
 
 public class UpdatesController extends RecyclerViewController<Void> implements View.OnClickListener {
 
   private SettingsAdapter adapter;
 
   public UpdatesController (Context context, Tdlib tdlib) {
-	  super(context, tdlib);
+	super(context, tdlib);
   }
 
-  @Override
-  public CharSequence getName() {
+  @Override public CharSequence getName() {
     return Lang.getString(R.string.UpdatesController);
   }
 
-  @Override
-  public void onClick(View v) {
-	  int viewId = v.getId();
-	  /* if (viewId == R.id.something) {
+  @Override public int getId() {
+	return R.id.controller_updates;
+  }
+
+  @Override public void onClick(View v) {
+	int viewId = v.getId();
+	/* if (viewId == R.id.something) {
       Do actions.
-	  } */
+	} */
   }
 
-  @Override
-  public int getId() {
-	  return R.id.controller_updates;
-  }
+  @Override protected void onCreateView(Context context, CustomRecyclerView recyclerView) {
+	SettingsAdapter adapter = new SettingsAdapter(this) {
+	  @Override protected void setValuedSetting(ListItem item, SettingView view, boolean isUpdate) {
+		view.setDrawModifier(item.getDrawModifier());
+		int itemId = item.getId();
+		/* if (itemId == R.id.something) {
+		  Do actions
+		} */
+	  }
+	};
 
-  @Override
-  protected void onCreateView(Context context, CustomRecyclerView recyclerView) {
-	  SettingsAdapter adapter = new SettingsAdapter(this) {
-	    @Override
-	    protected void setValuedSetting(ListItem item, SettingView view, boolean isUpdate) {
-		    view.setDrawModifier(item.getDrawModifier());
-		    int itemId = item.getId();
-		    /* if (itemId == R.id.something) {
-			    Do actions
-		    } */
-	    }
-	  };
+	ArrayList<ListItem> items = new ArrayList<>();
 
-	  ArrayList<ListItem> items = new ArrayList<>();
+	// No any items right now.
 
-	  // No any items right now.
-
-	  adapter.setItems(items, true);
+	adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);
 
-	}
+  }
 
 }

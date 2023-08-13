@@ -21,8 +21,8 @@ import org.thunderdog.challegram.v.CustomRecyclerView;
 
 import java.util.ArrayList;
 
-import me.pluxurylord.flexxgram.FlexxSettings;
-import me.pluxurylord.flexxgram.controllers.drawer.DrawerManagerController;
+import me.pluxurylord.flexxgram.FlexxConfig;
+import me.pluxurylord.flexxgram.ui.controllers.drawer.DrawerManagerController;
 
 public class InterfaceController extends RecyclerViewController<Void> implements View.OnClickListener {
 
@@ -32,36 +32,31 @@ public class InterfaceController extends RecyclerViewController<Void> implements
     super(context, tdlib);
   }
 
-  @Override
-  public CharSequence getName() {
+  @Override public CharSequence getName() {
 	  return Lang.getString(R.string.InterfaceController);
   }
 
-  @Override
-  public void onClick(View v) {
+  @Override public int getId() {
+    return R.id.controller_interface;
+  }
+
+  @Override public void onClick(View v) {
 	  int viewId = v.getId();
 	  if (viewId == R.id.btn_drawerManager) {
 	    navigateTo(new DrawerManagerController(context, tdlib));
 	  } else if (viewId == R.id.btn_hidePhoneNumber) {
-	  	FlexxSettings.instance().toggleHidePhoneNumber();
+	  	FlexxConfig.instance().toggleHidePhoneNumber();
 	  	adapter.updateValuedSettingById(R.id.btn_hidePhoneNumber);
 	  }
   }
 
-  @Override
-  public int getId() {
-	  return R.id.controller_interface;
-  }
-
-  @Override
-  protected void onCreateView(Context context, CustomRecyclerView recyclerView) {
+  @Override protected void onCreateView(Context context, CustomRecyclerView recyclerView) {
 	  SettingsAdapter adapter = new SettingsAdapter(this) {
-	    @Override
-	    protected void setValuedSetting(ListItem item, SettingView view, boolean isUpdate) {
+	    @Override protected void setValuedSetting(ListItem item, SettingView view, boolean isUpdate) {
 		    view.setDrawModifier(item.getDrawModifier());
 		    int itemId = item.getId();
 		    if (itemId == R.id.btn_hidePhoneNumber) {
-		    	view.getToggler().setRadioEnabled(FlexxSettings.hidePhoneNumber, isUpdate);
+		    	view.getToggler().setRadioEnabled(FlexxConfig.hidePhoneNumber, isUpdate);
 		    }
 	    }
 	  };

@@ -139,7 +139,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 
-import me.pluxurylord.flexxgram.FlexxSettings;
+import me.pluxurylord.flexxgram.FlexxConfig;
 
 import me.vkryl.android.AnimatorUtils;
 import me.vkryl.android.animator.FactorAnimator;
@@ -1665,7 +1665,7 @@ public class ProfileController extends ViewController<ProfileController.Args> im
           view.setName(getUsernameName());
           view.setData(getUsernameData());
         } else if (itemId == R.id.btn_phone) {
-          if (tdlib.isSelfUserId(user.id) && FlexxSettings.hidePhoneNumber) {
+          if (tdlib.isSelfUserId(user.id) && FlexxConfig.hidePhoneNumber) {
             view.setData(R.string.PhoneHidden);
           } else if (tdlib.isSelfUserId(user.id) && Settings.instance().needHidePhoneNumber()) {
             view.setData(Strings.replaceNumbers(Strings.formatPhone(user.phoneNumber)));

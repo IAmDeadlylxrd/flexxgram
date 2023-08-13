@@ -21,67 +21,61 @@ import org.thunderdog.challegram.v.CustomRecyclerView;
 
 import java.util.ArrayList;
 
-import me.pluxurylord.flexxgram.FlexxSettings;
-
+import me.pluxurylord.flexxgram.FlexxConfig;
 
 public class ChatsController extends RecyclerViewController<Void> implements View.OnClickListener {
 
   private SettingsAdapter adapter;
 
   public ChatsController (Context context, Tdlib tdlib) {
-	  super(context, tdlib);
+	super(context, tdlib);
   }
 
-  @Override
-  public CharSequence getName() {
-	  return Lang.getString(R.string.ChatsController);
+  @Override public CharSequence getName() {
+	return Lang.getString(R.string.ChatsController);
   }
 
-  @Override
-  public void onClick(View v) {
-	  int viewId = v.getId();
-	  if (viewId == R.id.btn_disableCameraButton) {
-	  	FlexxSettings.instance().toggleDisableCameraButton();
-	  	adapter.updateValuedSettingById(R.id.btn_disableCameraButton);
-	  } else if (viewId == R.id.btn_disableRecordButton) {
-	  	FlexxSettings.instance().toggleDisableRecordButton();
-	  	adapter.updateValuedSettingById(R.id.btn_disableRecordButton);
-	  } else if (viewId == R.id.btn_disableCmdButton) {
-	  	FlexxSettings.instance().toggleDisableCmdButton();
-	  	adapter.updateValuedSettingById(R.id.btn_disableCmdButton);
-	  } else if (viewId == R.id.btn_disableSenderButton) {
-	  	FlexxSettings.instance().toggleDisableSenderButton();
-	  	adapter.updateValuedSettingById(R.id.btn_disableSenderButton);
+  @Override public int getId() {
+	return R.id.controller_chats;
+  }
+
+  @Override public void onClick(View v) {
+	int viewId = v.getId();
+	if (viewId == R.id.btn_disableCameraButton) {
+	  FlexxConfig.instance().toggleChatButtons(1);
+	  adapter.updateValuedSettingById(R.id.btn_disableCameraButton);
+	} else if (viewId == R.id.btn_disableRecordButton) {
+	  FlexxConfig.instance().toggleChatButtons(2);
+	  adapter.updateValuedSettingById(R.id.btn_disableRecordButton);
+	} else if (viewId == R.id.btn_disableCmdButton) {
+	  FlexxConfig.instance().toggleChatButtons(3);
+	  adapter.updateValuedSettingById(R.id.btn_disableCmdButton);
+	} else if (viewId == R.id.btn_disableSenderButton) {
+	  FlexxConfig.instance().toggleChatButtons(4);
+	  adapter.updateValuedSettingById(R.id.btn_disableSenderButton);
+	}
+  }
+
+  @Override protected void onCreateView(Context context, CustomRecyclerView recyclerView) {
+	SettingsAdapter adapter = new SettingsAdapter(this) {
+	  @Override protected void setValuedSetting(ListItem item, SettingView view, boolean isUpdate) {
+		view.setDrawModifier(item.getDrawModifier());
+		int itemId = item.getId();
+		if (itemId == R.id.btn_disableCameraButton) {
+		  view.getToggler().setRadioEnabled(FlexxConfig.disableCameraButton, isUpdate);
+		} else if (itemId == R.id.btn_disableRecordButton) {
+		  view.getToggler().setRadioEnabled(FlexxConfig.disableRecordButton, isUpdate);
+		} else if (itemId == R.id.btn_disableCmdButton) {
+		  view.getToggler().setRadioEnabled(FlexxConfig.disableCmdButton, isUpdate);
+		} else if (itemId == R.id.btn_disableSenderButton) {
+		  view.getToggler().setRadioEnabled(FlexxConfig.disableSenderButton, isUpdate);
+		}
 	  }
-  }
+	};
 
-  @Override
-  public int getId() {
-	  return R.id.controller_chats;
-  }
+	ArrayList<ListItem> items = new ArrayList<>();
 
-  @Override
-  protected void onCreateView(Context context, CustomRecyclerView recyclerView) {
-	  SettingsAdapter adapter = new SettingsAdapter(this) {
-	    @Override
-	    protected void setValuedSetting(ListItem item, SettingView view, boolean isUpdate) {
-		    view.setDrawModifier(item.getDrawModifier());
-		    int itemId = item.getId();
-		    if (itemId == R.id.btn_disableCameraButton) {
-			    view.getToggler().setRadioEnabled(FlexxSettings.disableCameraButton, isUpdate);
-		    } else if (itemId == R.id.btn_disableRecordButton) {
-		    	view.getToggler().setRadioEnabled(FlexxSettings.disableRecordButton, isUpdate);
-		    } else if (itemId == R.id.btn_disableCmdButton) {
-		    	view.getToggler().setRadioEnabled(FlexxSettings.disableCmdButton, isUpdate);
-		    } else if (itemId == R.id.btn_disableSenderButton) {
-		    	view.getToggler().setRadioEnabled(FlexxSettings.disableSenderButton, isUpdate);
-		    }
-	    }
-	  };
-
-	  ArrayList<ListItem> items = new ArrayList<>();
-
-	  items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
+	items.add(new ListItem(ListItem.TYPE_EMPTY_OFFSET_SMALL));
     items.add(new ListItem(ListItem.TYPE_HEADER, 0, 0, R.string.ChatSettings));
 
     items.add(new ListItem(ListItem.TYPE_SHADOW_TOP));
@@ -94,9 +88,9 @@ public class ChatsController extends RecyclerViewController<Void> implements Vie
     items.add(new ListItem(ListItem.TYPE_RADIO_SETTING, R.id.btn_disableSenderButton, 0, R.string.DisableSenderButton));
     items.add(new ListItem(ListItem.TYPE_SHADOW_BOTTOM));
 
-	  adapter.setItems(items, true);
+	adapter.setItems(items, true);
     recyclerView.setAdapter(adapter);
 
-	}
+  }
 
 }
